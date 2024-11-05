@@ -23,7 +23,7 @@ jobs:
       - name: Checkout backend code
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/SturessonAdam/kryptering-backend
+          repository: SturessonAdam/kryptering-backend
           path: backend
 
       - name: Set up Node.js
