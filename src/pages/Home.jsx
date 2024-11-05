@@ -47,8 +47,8 @@ function Home() {
                 </div>
                 <div>
                     <select value={operation} onChange={(e) => setOperation(e.target.value)}>
-                        <option value="encrypt">Kryptera</option>
-                        <option value="decrypt">Dekryptera</option>
+                        <option value="encrypt">encrypt</option>
+                        <option value="decrypt">decrypt</option>
                     </select>
                 </div>
                 <button type="submit">Utför</button>
