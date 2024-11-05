@@ -34,7 +34,7 @@ jobs:
     - name: Start Backend Server
       run: |
         cd /Users/adamsturesson/Desktop/Kod/Java/Spring-kryptering
-        nohup java -jar your-backend.jar &
+        nohup java -jar Spring-kryptering.jar &
 
     - name: Deploy to GitHub Pages
       if: github.event_name == 'push'
