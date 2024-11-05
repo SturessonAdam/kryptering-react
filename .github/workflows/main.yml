@@ -33,7 +33,7 @@ jobs:
 
     - name: Start Backend Server
       run: |
-        cd path/to/java/backend
+        cd /Users/adamsturesson/Desktop/Kod/Java/Spring-kryptering
         nohup java -jar your-backend.jar &
 
     - name: Deploy to GitHub Pages
