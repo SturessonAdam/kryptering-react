@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -17,39 +14,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout frontend code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Checkout backend code
-        uses: actions/checkout@v4
-        with:
-          repository: SturessonAdam/kryptering-backend
-          path: backend
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+    - name: Install dependencies
+      run: npm install
 
-      - name: Install frontend dependencies
-        run: npm install
+    - name: Build
+      run: npm run build
 
-      - name: Build frontend
-        run: npm run build
-
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '23'
-          distribution: 'temurin'
-
-      - name: Start backend server
-        working-directory: ./backend
-        run: mvn spring-boot:run &
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
 
