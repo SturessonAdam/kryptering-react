@@ -17,28 +17,39 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout frontend code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+      - name: Checkout backend code
+        uses: actions/checkout@v4
+        with:
+          repository: https://github.com/SturessonAdam/kryptering-backend
+          path: backend
 
-    - name: Install dependencies
-      run: npm install --legacy-peer-deps
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-    - name: Build
-      run: npm run build
+      - name: Install frontend dependencies
+        run: npm install
 
-    - name: Start Backend Server
-      run: |
-        cd /Users/adamsturesson/Desktop/Kod/Java/Spring-kryptering
-        nohup java -jar Spring-kryptering.jar &
+      - name: Build frontend
+        run: npm run build
 
-    - name: Deploy to GitHub Pages
-      if: github.event_name == 'push'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'
+          distribution: 'temurin'
+
+      - name: Start backend server
+        working-directory: ./backend
+        run: mvn spring-boot:run &
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
