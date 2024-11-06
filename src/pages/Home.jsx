@@ -51,9 +51,9 @@ function Home() {
                         <option value="decrypt">decrypt</option>
                     </select>
                 </div>
-                <button type="submit">Utför</button>
+                <button type="submit">submit</button>
             </form>
-            <h2>Resultat:</h2>
+            <h2>Result:</h2>
             <p>{result}</p>
         </div>
     )
