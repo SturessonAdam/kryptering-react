@@ -1,8 +1,7 @@
-# React + Vite
+CI/CD examineringsuppgift.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Länk till backend-repo: https://github.com/SturessonAdam/Spring-kryptering
 
-Currently, two official plugins are available:
+Länk till Figma-skiss: https://www.figma.com/board/WptaVSjoFfG53Rc7I9DayK/CI%2FCD-fl%C3%B6de?node-id=0-1&node-type=canvas&t=iCBdLsWo8HTmHdKI-0
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Länk till rapport: https://docs.google.com/document/d/1kofWntYlxvMtIK0I9ZVHUyoEEM-46nDCIkxxcD0pHY4/edit?usp=sharing
